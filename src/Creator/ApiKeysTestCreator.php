@@ -5,11 +5,11 @@ declare(strict_types=1);
 
 namespace SyliusMolliePlugin\Creator;
 
+use Mollie\Api\Resources\MethodCollection;
 use SyliusMolliePlugin\Client\MollieApiClient;
 use SyliusMolliePlugin\DTO\ApiKeyTest;
 use SyliusMolliePlugin\Form\Type\MollieGatewayConfigurationType;
 use SyliusMolliePlugin\Resolver\MollieMethodsResolverInterface;
-use Mollie\Api\Resources\MethodCollection;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class ApiKeysTestCreator implements ApiKeysTestCreatorInterface
@@ -37,7 +37,7 @@ final class ApiKeysTestCreator implements ApiKeysTestCreatorInterface
 
         if (null === $key || '' === (trim($key))) {
             $apiKeyTest->setStatus(self::ERROR_STATUS);
-            $apiKeyTest->setMessage($this->translator->trans('sylius_mollie_plugin.ui.inser_you_key_first'));
+            $apiKeyTest->setMessage($this->translator->trans('sylius_mollie_plugin.ui.insert_you_key_first'));
 
             return $apiKeyTest;
         }
